@@ -1,0 +1,17 @@
+create table users (
+	username nvarchar(50) Primary Key,
+	pass varchar(50),
+	fullName nvarchar(50),
+	email varchar(50) unique,
+	phone varchar(15) unique,
+)
+
+create table topic (
+	id int Primary Key,
+	username nvarchar(50),
+	title nvarchar(4000) unique,
+	content nvarchar(4000),
+	postAt datetime,
+	label nvarchar(50),
+	foreign key (username) references users(username)
+)

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập</title>
+    <link rel="stylesheet" href="../static/style/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="shortcut icon"  th:href="@{/asset/real-icon-header.png}">
+</head>
+<body>
+    <div class="header">
+        <h1 class="name-web">FORUM</h1>
+    </div>
+    <div class="container">
+        <div class="container__sub">
+            <div class="detail">
+                <img src="../static/asset/logo.jpg" alt="img" class="img-logo">
+                <!--<h2 class="detail__content">Một tài khoản cho mọi dịch vụ của VBooking</h2>
+                <p class="detail__text">Tiếp cận tất cả các dịch vụ của VBooking với tài khoản của bạn</p>
+                <ul class="benefits">
+                    <li class="benefits__list">
+                        <i class="fa-solid fa-gift"></i>
+                        Nhận tặng thưởng khi đi du lịch
+                    </li>
+                    <li class="benefits__list">
+                        <i class="fa-solid fa-sack-dollar"></i>
+                        Tiết kiệm tức thì từ 10% trở lên với tài khoản VBooking.com miễn phí
+                    </li>
+                    <li class="benefits__list">
+                        <i class="fa-solid fa-lightbulb"></i>
+                        Nhận lời khuyên mà bạn cần
+                    </li>
+                    <li class="benefits__list">
+                        <i class="fa-solid fa-hotel"></i>
+                        Khám phá các điểm du lịch
+                    </li>
+                </ul>-->
+            </div>
+            <div class="login">
+                <h3 class="login__content">Đăng nhập tài khoản</h3>
+                <form method="post" class="login__form">
+                    <label for="fname">
+                        Tài khoản
+                    </label><br>
+                    {% if username %}
+                    <input field="username" type="text" id="fname" name="fname" class="cname" value={{username}}><br>
+                    {% else %}
+                    <input field="username" type="text" id="fname" name="fname" class="cname"><br>
+                    {% endif %}
+                    {% if usernameError %}
+                    <small text="usernameError" class="errorMessage" style="color: red;">Tài khoản không tồn tại</small><br>
+                    {% endif %}
+                    <label for="fpass">
+                        Mật khẩu
+                    </label><br>
+                    <input field="password" type="password" id="fpass" name="fpass" class="cpass"><br>
+                    {% if passError %}
+                    <small text="passwordError" class="errorMessage" style="color: red;">Sai mật khẩu</small>
+                    {% endif %}
+                    <p class="request"></p>
+                    <button type="submit" class="login-btn">Đăng nhập</button>
+                </form>
+                <p>Bạn chưa có tài khoản Forum? <a href="http://127.0.0.1:5000/signup">Đăng ký ngay</a></p>
+                <p class="login__rule">
+                    <i class="fa-solid fa-lock"></i>
+                    Qua việc đăng nhập hoặc tạo tài khoản, bạn đồng ý với các <a href="#">Điều khoản và Điều kiện</a> cũng như <a href="#">Chính sách An toàn và Bảo mật</a> của chúng tôi
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
