@@ -1,17 +1,3 @@
-create table users (
-	username nvarchar(50) Primary Key,
-	pass varchar(50),
-	fullName nvarchar(50),
-	email varchar(50) unique,
-	phone varchar(15) unique,
-)
-
-create table topic (
-	id int Primary Key,
-	username nvarchar(50),
-	title nvarchar(4000) unique,
-	content nvarchar(4000),
-	postAt datetime,
-	label nvarchar(50),
-	foreign key (username) references users(username)
-)
+version https://git-lfs.github.com/spec/v1
+oid sha256:8207c5da759d07cfa5fa7e7c346b893b0cc90edcddadf37bc33ae558f6898b84
+size 353

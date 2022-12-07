@@ -1,12 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for
 from app_init import app
 from connect_db import connect_db
-import pandas as pd
 import re
 
-@app.route('/')
-def hello():
-    return redirect(url_for('login'))
 
 @app.route('/login')
 def showLogin():
