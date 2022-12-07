@@ -1,5 +1,5 @@
 Sau khi tải/pull về chạy lệnh sau:
-git lfs migrate export --include="*.txt,*.prep"
+git lfs migrate export --include="**.txt,**.prep"
 
 Trước khi push lên nhớ chạy lệnh sau:
 git lfs migrate import --include="*.txt,*.prep"
