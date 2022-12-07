@@ -1,5 +1,5 @@
 Sau khi tải/pull về chạy lệnh sau:
-![image](https://user-images.githubusercontent.com/65118262/206206193-1c42ad77-bc37-47b0-a836-70c5a61c4e76.png)
+![image](https://user-images.githubusercontent.com/65118262/206210571-07587201-98dc-40e7-90a8-c4311d4f7263.png)
 
 Trước khi push lên nhớ chạy lệnh sau:
 ![image](https://user-images.githubusercontent.com/65118262/206206149-c4b27c66-0316-4e24-8ebc-1cd91ee002cd.png)
