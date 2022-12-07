@@ -4,13 +4,38 @@
     <link rel="stylesheet" href="../static/style/styles.css" />
   </head>
   <body>
-    <h1 style="background-color: #3366ff; color: #fff; padding: 15px">
-      Diễn đàn tiếng Việt thông minh
-    </h1>
+    <div
+      style="
+        display: flex;
+        background-color: #3366ff;
+        padding: 0 30px;
+        justify-content: space-between;
+      "
+    >
+      <h1 style="color: #fff">Diễn đàn tiếng Việt thông minh</h1>
+      <div style="margin-right: 30px">
+        <div style="display: flex; align-items: center">
+          <img
+            src="https://assets.stickpng.com/images/585e4bf3cb11b227491c339a.png"
+            style="width: 40px; height: 40px; margin-right: 10px"
+          />
+          <h2 style="color: #fff; margin-right: 10px; cursor: pointer">
+            Họ và tên
+          </h2>
+        </div>
+        <div style="display: flex; align-items: center">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/OOjs_UI_icon_logOut-ltr-invert.svg/1024px-OOjs_UI_icon_logOut-ltr-invert.svg.png"
+            style="width: 40px; height: 40px; margin-right: 10px"
+          />
+          <h2 style="color: #fff; cursor: pointer">Đăng xuất</h2>
+        </div>
+      </div>
+    </div>
     <div class="top-component">
       <div style="display: flex; flex-direction: column; flex-wrap: wrap">
         <form method="post">
-            <textarea
+          <textarea
             placeholder="Nhập vào đoạn văn"
             rows="20"
             name="comment_text"
@@ -21,8 +46,8 @@
             role="textbox"
             aria-autocomplete="list"
             aria-haspopup="true"
-            ></textarea>
-            <button type="submit" class="send">Gửi</button>
+          ></textarea>
+          <button type="submit" class="send">Gửi</button>
         </form>
       </div>
       <div class="search-container">
