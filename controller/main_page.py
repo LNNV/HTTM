@@ -10,7 +10,37 @@ def goToMainPage():
 
 @app.route('/main-page')
 def showMainPage():
-    return render_template('main-page.html')
+    posts = connect_db.cursor().execute('select * from posts').fetchall()
+    label_dict1 = {
+        'công nghệ': 0,
+        'du lịch': 0,
+        'giáo dục': 0,
+        'giải trí': 0,
+        'kinh doanh': 0,
+        'nhịp sống': 0,
+    }
+    label_dict2 = {
+        'phim ảnh': 0,
+        'pháp luật': 0,
+        'sống trẻ': 0,
+        'sức khỏe': 0,
+        'thế giới': 0,
+        'thể thao': 0,
+    }
+    label_dict3 = {
+        'thời sự': 0,
+        'thời trang': 0,
+        'xe 360': 0,
+        'xuất bản': 0,
+        'âm nhạc': 0,
+        'ẩm thực': 0,
+    }
+    for p in posts:
+        if p[4] in label_dict1.keys(): label_dict1[p[4]] += 1
+        if p[4] in label_dict2.keys(): label_dict2[p[4]] += 1
+        if p[4] in label_dict3.keys(): label_dict3[p[4]] += 1
+    return render_template('main-page.html', label_dict1=label_dict1, label_dict2=label_dict2, label_dict3=label_dict3)
+
 
 @app.route('/main-page', methods=['POST'])
 def post():

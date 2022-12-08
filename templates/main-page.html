@@ -65,118 +65,34 @@
     <div class="bottom-component">
       <div class="row">
         <div class="column">
-          <div class="dropdown">
-            <a href="#" class="notification">
-              <span>Công nghệ</span>
-              <span class="badge">3</span>
-            </a>
-          </div>
-          <div class="dropdown">
-            <a href="#" class="notification">
-              <span>Du lịch</span>
-              <span class="badge">3</span>
-            </a>
-          </div>
-          <div class="dropdown">
-            <a href="#" class="notification">
-              <span>Giáo dục</span>
-              <span class="badge">3</span>
-            </a>
-          </div>
-          <div class="dropdown">
-            <a href="#" class="notification">
-              <span>Giải trí</span>
-              <span class="badge">3</span>
-            </a>
-          </div>
-          <div class="dropdown">
-            <a href="#" class="notification">
-              <span>Kinh doanh</span>
-              <span class="badge">3</span>
-            </a>
-          </div>
-          <div class="dropdown">
-            <a href="#" class="notification">
-              <span>Nhịp sống</span>
-              <span class="badge">3</span>
-            </a>
-          </div>
+            {% for key in label_dict1 %}
+                <div class="dropdown">
+                    <a href="/details?label={{key}}" class="notification">
+                        <span>{{key}}</span>
+                        <span class="badge">{{label_dict1[key]}}</span>
+                    </a>
+                </div>
+            {% endfor %}
         </div>
         <div class="column">
-          <div class="dropdown">
-            <a href="#" class="notification">
-              <span>Phim ảnh</span>
-              <span class="badge">3</span>
-            </a>
-          </div>
-          <div class="dropdown">
-            <a href="#" class="notification">
-              <span>Pháp luật</span>
-              <span class="badge">3</span>
-            </a>
-          </div>
-          <div class="dropdown">
-            <a href="#" class="notification">
-              <span>Sống trẻ</span>
-              <span class="badge">3</span>
-            </a>
-          </div>
-          <div class="dropdown">
-            <a href="#" class="notification">
-              <span>Sức khoẻ</span>
-              <span class="badge">3</span>
-            </a>
-          </div>
-          <div class="dropdown">
-            <a href="#" class="notification">
-              <span>Thế giới</span>
-              <span class="badge">3</span>
-            </a>
-          </div>
-          <div class="dropdown">
-            <a href="#" class="notification">
-              <span>Thể thao</span>
-              <span class="badge">3</span>
-            </a>
-          </div>
+            {% for key in label_dict2 %}
+                <div class="dropdown">
+                    <a href="/details?label={{key}}" class="notification">
+                        <span>{{key}}</span>
+                        <span class="badge">{{label_dict2[key]}}</span>
+                    </a>
+                </div>
+            {% endfor %}
         </div>
         <div class="column">
-          <div class="dropdown">
-            <a href="#" class="notification">
-              <span>Thời sự</span>
-              <span class="badge">3</span>
-            </a>
-          </div>
-          <div class="dropdown">
-            <a href="#" class="notification">
-              <span>Thời trang</span>
-              <span class="badge">3</span>
-            </a>
-          </div>
-          <div class="dropdown">
-            <a href="#" class="notification">
-              <span>Xe 360</span>
-              <span class="badge">3</span>
-            </a>
-          </div>
-          <div class="dropdown">
-            <a href="#" class="notification">
-              <span>Xuất bản</span>
-              <span class="badge">3</span>
-            </a>
-          </div>
-          <div class="dropdown">
-            <a href="#" class="notification">
-              <span>Âm nhạc</span>
-              <span class="badge">3</span>
-            </a>
-          </div>
-          <div class="dropdown">
-            <a href="#" class="notification">
-              <span>Ẩm thực</span>
-              <span class="badge">3</span>
-            </a>
-          </div>
+            {% for key in label_dict3 %}
+                <div class="dropdown">
+                    <a href="/details?label={{key}}" class="notification">
+                        <span>{{key}}</span>
+                        <span class="badge">{{label_dict3[key]}}</span>
+                    </a>
+                </div>
+            {% endfor %}
         </div>
       </div>
     </div>
