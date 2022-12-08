@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, make_response
 from app_init import app
 from connect_db import connect_db
 import re
@@ -6,6 +6,8 @@ import re
 
 @app.route('/login')
 def showLogin():
+    if request.cookies.get('user') != None:
+        return redirect('/main-page')
     return render_template('login.html')
 
 @app.route('/login', methods=['POST'])
@@ -15,7 +17,9 @@ def login():
     _password = request.form['fpass']
     for user in users:
         if _username == user[0] and _password == user[1]:
-            return "Welcoms"
+            resp = make_response(redirect('/main-page'))
+            resp.set_cookie('user', _username)
+            return resp
         if _username == user[0]:
             return render_template('login.html', passError = 1, username = _username)
     return render_template('login.html', usernameError = 1, username = _username)
