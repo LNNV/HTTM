@@ -16,20 +16,30 @@
       <h1 style="color: #fff">Diễn đàn tiếng Việt thông minh</h1>
       <div style="margin-right: 30px">
         <div style="display: flex; align-items: center">
+          {% if user != '' %}
           <img
             src="https://assets.stickpng.com/images/585e4bf3cb11b227491c339a.png"
             style="width: 40px; height: 40px; margin-right: 10px"
           />
           <h2 style="color: #fff; margin-right: 10px; cursor: pointer">
-            Họ và tên
+            {{user}}
           </h2>
+          {% endif %}
         </div>
         <div style="display: flex; align-items: center">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/OOjs_UI_icon_logOut-ltr-invert.svg/1024px-OOjs_UI_icon_logOut-ltr-invert.svg.png"
             style="width: 40px; height: 40px; margin-right: 10px"
           />
-          <h2 style="color: #fff; cursor: pointer">Đăng xuất</h2>
+          {% if user != '' %}
+          <a href="/logout" style="text-decoration: none">
+            <h2 style="color: #fff; cursor: pointer">Đăng xuất</h2>
+          </a>
+          {% else %}
+          <a href="/login" style="text-decoration: none">
+            <h2 style="color: #fff; cursor: pointer">Đăng nhập</h2>
+          </a>
+          {% endif %}
         </div>
       </div>
     </div>
@@ -219,13 +229,15 @@
         </div>
         <div id="rateComponent">
           <div style="margin-top: 20px; display: flex">
-            <textarea style="width: 80%; height: 50px"></textarea>
-            <input
-              class="search-btn"
-              style="margin-top: 20px; cursor: pointer; margin-left: 10px"
-              type="submit"
-              value="Submit"
-            />
+            <form action="/send-feedback" method="post">
+                <textarea style="width: 80%; height: 50px" placeholder="Nhập vào đoạn văn" name="feedback" id="feedback"></textarea>
+                <input
+                class="search-btn"
+                style="margin-top: 20px; cursor: pointer; margin-left: 10px"
+                type="submit"
+                value="Submit"
+                />
+            </form>
           </div>
           <div class="article-wrapper">
             <h2 style="font-size: 35px; margin-bottom: -27px">Ho va Ten</h2>
