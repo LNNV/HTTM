@@ -7,9 +7,10 @@
     <div
       style="
         display: flex;
-        background-color: #3366ff;
+        background-color: #4da6ff;
         padding: 0 30px;
         justify-content: space-between;
+        border-radius: 10px;
       "
     >
       <h1 style="color: #fff">Diễn đàn tiếng Việt thông minh</h1>
@@ -65,36 +66,198 @@
     <div class="bottom-component">
       <div class="row">
         <div class="column">
-            {% for key in label_dict1 %}
-                <div class="dropdown">
-                    <a href="/details?label={{key}}" class="notification">
-                        <span>{{key}}</span>
-                        <span class="badge">{{label_dict1[key]}}</span>
-                    </a>
-                </div>
-            {% endfor %}
+          {% for key in label_dict1 %}
+          <div class="dropdown">
+            <a href="/details?label={{key}}" class="notification">
+              <span>{{key}}</span>
+              <span class="badge">{{label_dict1[key]}}</span>
+            </a>
+          </div>
+          {% endfor %}
         </div>
         <div class="column">
-            {% for key in label_dict2 %}
-                <div class="dropdown">
-                    <a href="/details?label={{key}}" class="notification">
-                        <span>{{key}}</span>
-                        <span class="badge">{{label_dict2[key]}}</span>
-                    </a>
-                </div>
-            {% endfor %}
+          {% for key in label_dict2 %}
+          <div class="dropdown">
+            <a href="/details?label={{key}}" class="notification">
+              <span>{{key}}</span>
+              <span class="badge">{{label_dict2[key]}}</span>
+            </a>
+          </div>
+          {% endfor %}
         </div>
         <div class="column">
-            {% for key in label_dict3 %}
-                <div class="dropdown">
-                    <a href="/details?label={{key}}" class="notification">
-                        <span>{{key}}</span>
-                        <span class="badge">{{label_dict3[key]}}</span>
-                    </a>
-                </div>
-            {% endfor %}
+          {% for key in label_dict3 %}
+          <div class="dropdown">
+            <a href="/details?label={{key}}" class="notification">
+              <span>{{key}}</span>
+              <span class="badge">{{label_dict3[key]}}</span>
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div style="padding-bottom: 350px; margin: 20px">
+      <div style="display: flex; margin-left: 30px">
+        <div id="posts" class="button-bottom" onclick="setBottomTab(event)">
+          <p class="btn-text">Bài đăng</p>
+        </div>
+        <div
+          id="rates"
+          class="button-bottom-deactive"
+          onclick="setBottomTab(event)"
+        >
+          <p class="btn-text">Đánh giá</p>
+        </div>
+      </div>
+      <div>
+        <div id="postComponent">
+          <div class="article-wrapper">
+            <h2 style="font-size: 35px; margin-bottom: -27px">Ho va Ten</h2>
+            <h5 style="font-size: 20px; font-weight: 300; margin-bottom: -27px">
+              Ngay thang/The loai
+            </h5>
+            <h5 style="font-size: 20px; font-weight: 300; margin-bottom: -5px">
+              Ngay thang/The loai
+            </h5>
+            <p
+              style="
+                display: -webkit-box;
+                max-width: 100%;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                font-size: 24px;
+              "
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu
+              pharetra erat. Donec finibus quam quis dui consequat, eu molestie
+              odio fringilla. Vestibulum sit amet suscipit purus. Cras id
+              convallis magna. Nulla faucibus nunc ullamcorper risus vestibulum,
+              eu laoreet velit rhoncus. Mauris a congue dolor. Ut pellentesque
+              efficitur lobortis. Suspendisse sed viverra augue. Lorem ipsum
+              dolor sit amet, consectetur adipiscing elit. Nulla eu pharetra
+              erat. Donec finibus quam quis dui consequat, eu molestie odio
+              fringilla. Vestibulum sit amet suscipit purus. Cras id convallis
+              magna. Nulla faucibus nunc ullamcorper risus vestibulum, eu
+              laoreet velit rhoncus. Mauris a congue dolor. Ut pellentesque
+              efficitur lobortis. Suspendisse sed viverra augue.
+            </p>
+            <div
+              style="
+                margin-top: -10px;
+                cursor: pointer;
+                width: 100px;
+                background-color: green;
+                text-align: center;
+                align-items: center;
+                justify-content: center;
+                padding: 1px 0px;
+                height: 40px;
+                border-radius: 10px;
+              "
+            >
+              <h3 style="margin-top: 8px; color: #fff" id="modalBtn">
+                Xem thêm
+              </h3>
+            </div>
+          </div>
+          <!-- The Modal -->
+          <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <div
+                class="article-wrapper"
+                style="display: block; padding: 20px"
+              >
+                <h2 style="font-size: 35px; margin-bottom: -27px">Ho va Ten</h2>
+                <h5
+                  style="
+                    font-size: 20px;
+                    font-weight: 300;
+                    margin-bottom: -27px;
+                  "
+                >
+                  Ngay thang/The loai
+                </h5>
+                <h5
+                  style="font-size: 20px; font-weight: 300; margin-bottom: -5px"
+                >
+                  Ngay thang/The loai
+                </h5>
+                <p
+                  style="
+                    display: -webkit-box;
+                    max-width: 100%;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                    font-size: 24px;
+                  "
+                >
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+                  eu pharetra erat. Donec finibus quam quis dui consequat, eu
+                  molestie odio fringilla. Vestibulum sit amet suscipit purus.
+                  Cras id convallis magna. Nulla faucibus nunc ullamcorper risus
+                  vestibulum, eu laoreet velit rhoncus. Mauris a congue dolor.
+                  Ut pellentesque efficitur lobortis. Suspendisse sed viverra
+                  augue. Lorem ipsum dolor sit amet, consectetur adipiscing
+                  elit. Nulla eu pharetra erat. Donec finibus quam quis dui
+                  consequat, eu molestie odio fringilla. Vestibulum sit amet
+                  suscipit purus. Cras id convallis magna. Nulla faucibus nunc
+                  ullamcorper risus vestibulum, eu laoreet velit rhoncus. Mauris
+                  a congue dolor. Ut pellentesque efficitur lobortis.
+                  Suspendisse sed viverra augue.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="rateComponent">
+          <div style="margin-top: 20px; display: flex">
+            <textarea style="width: 80%; height: 50px"></textarea>
+            <input
+              class="search-btn"
+              style="margin-top: 20px; cursor: pointer; margin-left: 10px"
+              type="submit"
+              value="Submit"
+            />
+          </div>
+          <div class="article-wrapper">
+            <h2 style="font-size: 35px; margin-bottom: -27px">Ho va Ten</h2>
+            <h5 style="font-size: 20px; font-weight: 300; margin-bottom: -27px">
+              Ngay thang/The loai
+            </h5>
+            <h5 style="font-size: 20px; font-weight: 300; margin-bottom: -5px">
+              Ngay thang/The loai
+            </h5>
+            <p
+              style="
+                display: -webkit-box;
+                max-width: 100%;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                font-size: 24px;
+              "
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu
+              pharetra erat. Donec finibus quam quis dui consequat, eu molestie
+              odio fringilla. Vestibulum sit amet suscipit purus. Cras id
+              convallis magna. Nulla faucibus nunc ullamcorper risus vestibulum,
+              eu laoreet velit rhoncus. Mauris a congue dolor. Ut pellentesque
+              efficitur lobortis. Suspendisse sed viverra augue. Lorem ipsum
+              dolor sit amet, consectetur adipiscing elit. Nulla eu pharetra
+              erat. Donec finibus quam quis dui consequat, eu molestie odio
+              fringilla. Vestibulum sit amet suscipit purus. Cras id convallis
+              magna. Nulla faucibus nunc ullamcorper risus vestibulum, eu
+              laoreet velit rhoncus. Mauris a congue dolor. Ut pellentesque
+              efficitur lobortis. Suspendisse sed viverra augue.
+            </p>
+          </div>
         </div>
       </div>
     </div>
   </body>
+  <script src="../static/script/script.js"></script>
+  <script src="../static/script/modal.js"></script>
 </html>

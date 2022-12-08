@@ -150,3 +150,90 @@ textarea:focus {
   width: 32%;
   padding: 10px;
 }
+
+.article-wrapper {
+  display: block;
+  padding: 20px;
+  border: 2px solid #cccccc;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.button-bottom {
+  background-color: #00b300;
+  width: 150px;
+  height: 30px;
+  padding: 15px;
+  text-align: center;
+  margin-right: 10px;
+  align-items: center;
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.btn-text {
+  margin-top: 3px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.button-bottom-deactive {
+  background-color: gray;
+  width: 150px;
+  height: 30px;
+  padding: 15px;
+  text-align: center;
+  margin-right: 10px;
+  align-items: center;
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.bottom-tab-component-active {
+  display: contents;
+}
+
+.bottom-tab-component-deactive {
+  display: none;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  border-radius: 10px;
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
