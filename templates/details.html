@@ -113,15 +113,21 @@
             border-radius: 10px;
           "
         >
-          <h3 style="margin-top: 8px; color: #fff" id="modalBtn">Xem thêm</h3>
+          <h3
+            style="margin-top: 8px; color: #fff"
+            id="1"
+            onclick="onShowMore(event)"
+          >
+            Xem thêm
+          </h3>
         </div>
       </div>
 
       <!-- The Modal -->
-      <div id="myModal" class="modal">
+      <div id="showMore1" class="modal">
         <!-- Modal content -->
         <div class="modal-content">
-          <span class="close">&times;</span>
+          <span id="1" class="close" onclick="onClose(event)">&times;</span>
           <div class="article-wrapper" style="display: block; padding: 20px">
             <h2 style="font-size: 35px; margin-bottom: -27px">Ho va Ten</h2>
             <h5 style="font-size: 20px; font-weight: 300; margin-bottom: -27px">

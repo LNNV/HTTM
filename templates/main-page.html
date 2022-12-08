@@ -157,16 +157,20 @@
                 border-radius: 10px;
               "
             >
-              <h3 style="margin-top: 8px; color: #fff" id="modalBtn">
+              <h3
+                style="margin-top: 8px; color: #fff"
+                onclick="onShowMore(event)"
+                id="1"
+              >
                 Xem thêm
               </h3>
             </div>
           </div>
           <!-- The Modal -->
-          <div id="myModal" class="modal">
+          <div id="showMore1" class="modal">
             <!-- Modal content -->
             <div class="modal-content">
-              <span class="close">&times;</span>
+              <span id="1" class="close" onclick="onClose(event)">&times;</span>
               <div
                 class="article-wrapper"
                 style="display: block; padding: 20px"
@@ -258,6 +262,6 @@
       </div>
     </div>
   </body>
-  <script src="../static/script/script.js"></script>
   <script src="../static/script/modal.js"></script>
+  <script src="../static/script/script.js"></script>
 </html>
