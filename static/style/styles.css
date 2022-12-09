@@ -109,7 +109,7 @@ textarea:focus {
   border-radius: 10px;
 
   text-align: center;
-  background: #33cc33;
+  background: #008ae6;
   margin-bottom: 10px;
   color: #fff;
   padding: 20px;
@@ -170,7 +170,7 @@ textarea:focus {
 }
 
 .button-bottom {
-  background-color: #00b300;
+  background-color: #008ae6;
   width: 150px;
   height: 30px;
   padding: 15px;
