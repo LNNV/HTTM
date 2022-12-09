@@ -11,7 +11,10 @@ def goToMainPage():
 @app.route('/main-page')
 def showMainPage():
     posts = connect_db.cursor().execute('select * from posts').fetchall()
+    posts = list(reversed(posts))
     user = request.cookies.get('user')
+    feedback = connect_db.cursor().execute('select * from feedback').fetchall()
+    feedback = list(reversed(feedback))
     label_dict1 = {
         'công nghệ': 0,
         'du lịch': 0,
@@ -36,24 +39,24 @@ def showMainPage():
         'âm nhạc': 0,
         'ẩm thực': 0,
     }
-    if user == None: user = ''
     for p in posts:
         if p[4] in label_dict1.keys(): label_dict1[p[4]] += 1
         if p[4] in label_dict2.keys(): label_dict2[p[4]] += 1
         if p[4] in label_dict3.keys(): label_dict3[p[4]] += 1
-    return render_template('main-page.html', user=user,
+    return render_template('main-page.html', user=user, posts=posts, feedback=feedback,
                            label_dict1=label_dict1, label_dict2=label_dict2, label_dict3=label_dict3)
 
 
 @app.route('/main-page', methods=['POST'])
 def post():
+    user = request.cookies.get('user')
+    if user == None: return redirect('/login')
     _content = request.form['comment_text']
     label = str(predict(_content))
     label = label.removeprefix('__label__')
     label = label.replace('_', ' ')
     now = datetime.now()
-    username = 'test1'
-    connect_db.cursor().execute('insert into posts (username, content, postAt, label) values (?, ?, ?, ?)', (username, _content, now, label))
+    connect_db.cursor().execute('insert into posts (username, content, postAt, label) values (?, ?, ?, ?)', (user, _content, now, label))
     connect_db.commit()
     return redirect(url_for('showMainPage'))
 
@@ -62,3 +65,13 @@ def logout():
     resp = make_response(redirect('/main-page'))
     resp.set_cookie('user', expires=0)
     return resp
+
+@app.route('/send-feedback', methods=['POST'])
+def send_feedback():
+    user = request.cookies.get('user')
+    if user == None: return redirect('/login')
+    _content =request.form['feedback']
+    now = datetime.now()
+    connect_db.cursor().execute('insert into feedback (username, content, postAt) values (?, ?, ?)', (user, _content, now))
+    connect_db.commit()
+    return redirect(url_for('showMainPage'))

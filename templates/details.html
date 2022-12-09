@@ -31,28 +31,36 @@
       </div>
       <div style="margin-right: 30px">
         <div style="display: flex; align-items: center">
-          <img
-            src="https://assets.stickpng.com/images/585e4bf3cb11b227491c339a.png"
-            style="width: 40px; height: 40px; margin-right: 10px"
-          />
-          <h2 style="color: #fff; margin-right: 10px; cursor: pointer">
-            Họ và tên
-          </h2>
+            {% if user %}
+            <img
+              src="https://assets.stickpng.com/images/585e4bf3cb11b227491c339a.png"
+              style="width: 40px; height: 40px; margin-right: 10px"
+            />
+            <h2 style="color: #fff; margin-right: 10px; cursor: pointer">
+              {{user}}
+            </h2>
+            {% endif %}
         </div>
         <div style="display: flex; align-items: center">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/OOjs_UI_icon_logOut-ltr-invert.svg/1024px-OOjs_UI_icon_logOut-ltr-invert.svg.png"
             style="width: 40px; height: 40px; margin-right: 10px"
           />
-          <a href="#" style="text-decoration: none"
-            ><h2 style="color: #fff; cursor: pointer">Đăng xuất</h2></a
-          >
+          {% if user %}
+          <a href="/logout" style="text-decoration: none">
+            <h2 style="color: #fff; cursor: pointer">Đăng xuất</h2>
+          </a>
+          {% else %}
+          <a href="/login" style="text-decoration: none">
+            <h2 style="color: #fff; cursor: pointer">Đăng nhập</h2>
+          </a>
+          {% endif %}
         </div>
       </div>
     </div>
     <div class="top-component">
       <div style="display: flex; flex-direction: column; flex-wrap: wrap">
-        <form method="post">
+        <form action="/main-page" method="post">
           <textarea
             placeholder="Nhập vào đoạn văn"
             rows="20"
@@ -68,8 +76,9 @@
           <button type="submit" class="send">Gửi</button>
         </form>
       </div>
+      {% if able_search %}
       <div class="search-container">
-        <form action="/action_page.php">
+        <form action="/details/search?label={{label}}" method="post">
           <input
             class="search"
             type="text"
@@ -79,6 +88,7 @@
           <button class="search-btn" type="submit">Tìm kiếm</button>
         </form>
       </div>
+      {% endif %}
     </div>
     <div class="bottom-component">
       {% for p in posts %}
@@ -123,7 +133,7 @@
         >
           <h3
             style="margin-top: 8px; color: #fff"
-            id="1"
+            id="{{p[0]}}"
             onclick="onShowMore(event)"
           >
             Xem thêm
@@ -132,17 +142,17 @@
       </div>
 
       <!-- The Modal -->
-      <div id="showMore1" class="modal">
+      <div id="showMore{{p[0]}}" class="modal">
         <!-- Modal content -->
         <div class="modal-content">
-          <span id="1" class="close" onclick="onClose(event)">&times;</span>
+          <span id="{{p[0]}}" class="close" onclick="onClose(event)">&times;</span>
           <div class="article-wrapper" style="display: block; padding: 20px">
-            <h2 style="font-size: 35px; margin-bottom: -27px">Ho va Ten</h2>
+            <h2 style="font-size: 35px; margin-bottom: -27px">{{p[1]}}</h2>
             <h5 style="font-size: 20px; font-weight: 300; margin-bottom: -27px">
-              Ngay thang/The loai
+              {{p[4]}}
             </h5>
             <h5 style="font-size: 20px; font-weight: 300; margin-bottom: -5px">
-              Ngay thang/The loai
+              {{p[3]}}
             </h5>
             <p
               style="
@@ -153,18 +163,7 @@
                 font-size: 24px;
               "
             >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu
-              pharetra erat. Donec finibus quam quis dui consequat, eu molestie
-              odio fringilla. Vestibulum sit amet suscipit purus. Cras id
-              convallis magna. Nulla faucibus nunc ullamcorper risus vestibulum,
-              eu laoreet velit rhoncus. Mauris a congue dolor. Ut pellentesque
-              efficitur lobortis. Suspendisse sed viverra augue. Lorem ipsum
-              dolor sit amet, consectetur adipiscing elit. Nulla eu pharetra
-              erat. Donec finibus quam quis dui consequat, eu molestie odio
-              fringilla. Vestibulum sit amet suscipit purus. Cras id convallis
-              magna. Nulla faucibus nunc ullamcorper risus vestibulum, eu
-              laoreet velit rhoncus. Mauris a congue dolor. Ut pellentesque
-              efficitur lobortis. Suspendisse sed viverra augue.
+              {{p[2]}}
             </p>
           </div>
         </div>

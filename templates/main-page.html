@@ -16,7 +16,7 @@
       <h1 style="color: #fff">Diễn đàn tiếng Việt thông minh</h1>
       <div style="margin-right: 30px">
         <div style="display: flex; align-items: center">
-          {% if user != '' %}
+          {% if user %}
           <img
             src="https://assets.stickpng.com/images/585e4bf3cb11b227491c339a.png"
             style="width: 40px; height: 40px; margin-right: 10px"
@@ -31,7 +31,7 @@
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/OOjs_UI_icon_logOut-ltr-invert.svg/1024px-OOjs_UI_icon_logOut-ltr-invert.svg.png"
             style="width: 40px; height: 40px; margin-right: 10px"
           />
-          {% if user != '' %}
+          {% if user %}
           <a href="/logout" style="text-decoration: none">
             <h2 style="color: #fff; cursor: pointer">Đăng xuất</h2>
           </a>
@@ -62,12 +62,13 @@
         </form>
       </div>
       <div class="search-container">
-        <form action="/action_page.php">
+        <form action="/details/search" method="post">
           <input
             class="search"
             type="text"
             placeholder="Tìm kiếm..."
             name="search"
+            id="search"
           />
           <button class="search-btn" type="submit">Tìm kiếm</button>
         </form>
@@ -122,13 +123,14 @@
       </div>
       <div>
         <div id="postComponent">
+          {% for p in posts %}
           <div class="article-wrapper">
-            <h2 style="font-size: 35px; margin-bottom: -27px">Ho va Ten</h2>
+            <h2 style="font-size: 35px; margin-bottom: -27px">{{p[1]}}</h2>
             <h5 style="font-size: 20px; font-weight: 300; margin-bottom: -27px">
-              Ngay thang/The loai
+              {{p[4]}}
             </h5>
             <h5 style="font-size: 20px; font-weight: 300; margin-bottom: -5px">
-              Ngay thang/The loai
+              {{p[3]}}
             </h5>
             <p
               style="
@@ -140,18 +142,7 @@
                 font-size: 24px;
               "
             >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu
-              pharetra erat. Donec finibus quam quis dui consequat, eu molestie
-              odio fringilla. Vestibulum sit amet suscipit purus. Cras id
-              convallis magna. Nulla faucibus nunc ullamcorper risus vestibulum,
-              eu laoreet velit rhoncus. Mauris a congue dolor. Ut pellentesque
-              efficitur lobortis. Suspendisse sed viverra augue. Lorem ipsum
-              dolor sit amet, consectetur adipiscing elit. Nulla eu pharetra
-              erat. Donec finibus quam quis dui consequat, eu molestie odio
-              fringilla. Vestibulum sit amet suscipit purus. Cras id convallis
-              magna. Nulla faucibus nunc ullamcorper risus vestibulum, eu
-              laoreet velit rhoncus. Mauris a congue dolor. Ut pellentesque
-              efficitur lobortis. Suspendisse sed viverra augue.
+              {{p[2]}}
             </p>
             <div
               style="
@@ -170,22 +161,22 @@
               <h3
                 style="margin-top: 8px; color: #fff"
                 onclick="onShowMore(event)"
-                id="1"
+                id="{{p[0]}}"
               >
                 Xem thêm
               </h3>
             </div>
           </div>
           <!-- The Modal -->
-          <div id="showMore1" class="modal">
+          <div id="showMore{{p[0]}}" class="modal">
             <!-- Modal content -->
             <div class="modal-content">
-              <span id="1" class="close" onclick="onClose(event)">&times;</span>
+              <span id="{{p[0]}}" class="close" onclick="onClose(event)">&times;</span>
               <div
                 class="article-wrapper"
                 style="display: block; padding: 20px"
               >
-                <h2 style="font-size: 35px; margin-bottom: -27px">Ho va Ten</h2>
+                <h2 style="font-size: 35px; margin-bottom: -27px">{{p[1]}}</h2>
                 <h5
                   style="
                     font-size: 20px;
@@ -193,12 +184,12 @@
                     margin-bottom: -27px;
                   "
                 >
-                  Ngay thang/The loai
+                  {{p[4]}}
                 </h5>
                 <h5
                   style="font-size: 20px; font-weight: 300; margin-bottom: -5px"
                 >
-                  Ngay thang/The loai
+                  {{p[3]}}
                 </h5>
                 <p
                   style="
@@ -209,43 +200,31 @@
                     font-size: 24px;
                   "
                 >
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-                  eu pharetra erat. Donec finibus quam quis dui consequat, eu
-                  molestie odio fringilla. Vestibulum sit amet suscipit purus.
-                  Cras id convallis magna. Nulla faucibus nunc ullamcorper risus
-                  vestibulum, eu laoreet velit rhoncus. Mauris a congue dolor.
-                  Ut pellentesque efficitur lobortis. Suspendisse sed viverra
-                  augue. Lorem ipsum dolor sit amet, consectetur adipiscing
-                  elit. Nulla eu pharetra erat. Donec finibus quam quis dui
-                  consequat, eu molestie odio fringilla. Vestibulum sit amet
-                  suscipit purus. Cras id convallis magna. Nulla faucibus nunc
-                  ullamcorper risus vestibulum, eu laoreet velit rhoncus. Mauris
-                  a congue dolor. Ut pellentesque efficitur lobortis.
-                  Suspendisse sed viverra augue.
+                  {{p[2]}}
                 </p>
               </div>
             </div>
           </div>
+          {% endfor %}
         </div>
         <div id="rateComponent">
           <div style="margin-top: 20px; display: flex">
-            <form action="/send-feedback" method="post">
-                <textarea style="width: 80%; height: 50px" placeholder="Nhập vào đoạn văn" name="feedback" id="feedback"></textarea>
-                <input
+            <form action="/send-feedback" method="post" style="width: 100%;">
+                <textarea style="width: 80%; height: 50px" name="feedback" id="feedback"></textarea>
+                <button class="send-feedback" type="submit">Gửi</button>
+                <!-- <input
                 class="search-btn"
                 style="margin-top: 20px; cursor: pointer; margin-left: 10px"
                 type="submit"
                 value="Submit"
-                />
+                /> -->
             </form>
           </div>
+          {% for f in feedback %}
           <div class="article-wrapper">
-            <h2 style="font-size: 35px; margin-bottom: -27px">Ho va Ten</h2>
-            <h5 style="font-size: 20px; font-weight: 300; margin-bottom: -27px">
-              Ngay thang/The loai
-            </h5>
+            <h2 style="font-size: 35px; margin-bottom: -27px">{{f[1]}}</h2>
             <h5 style="font-size: 20px; font-weight: 300; margin-bottom: -5px">
-              Ngay thang/The loai
+              {{f[3]}}
             </h5>
             <p
               style="
@@ -256,20 +235,10 @@
                 font-size: 24px;
               "
             >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu
-              pharetra erat. Donec finibus quam quis dui consequat, eu molestie
-              odio fringilla. Vestibulum sit amet suscipit purus. Cras id
-              convallis magna. Nulla faucibus nunc ullamcorper risus vestibulum,
-              eu laoreet velit rhoncus. Mauris a congue dolor. Ut pellentesque
-              efficitur lobortis. Suspendisse sed viverra augue. Lorem ipsum
-              dolor sit amet, consectetur adipiscing elit. Nulla eu pharetra
-              erat. Donec finibus quam quis dui consequat, eu molestie odio
-              fringilla. Vestibulum sit amet suscipit purus. Cras id convallis
-              magna. Nulla faucibus nunc ullamcorper risus vestibulum, eu
-              laoreet velit rhoncus. Mauris a congue dolor. Ut pellentesque
-              efficitur lobortis. Suspendisse sed viverra augue.
+              {{f[2]}}
             </p>
           </div>
+          {% endfor %}
         </div>
       </div>
     </div>

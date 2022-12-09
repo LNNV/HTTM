@@ -22,9 +22,8 @@
                     Tài khoản
                 </label><br>
                 <input field="username" type="text" id="fname" name="fname" class="cname" value = "{{username}}" required><br>
-                <small class="request">Vui lòng nhập từ 6-40 kí tự</small><br>
                 {% if usernameError %}
-                <small text="usernameError" class="request" style="color:red"></small>Tên tài khoản đã tồn tại<br>
+                <small text="usernameError" class="request" style="color:red">Tên tài khoản đã tồn tại</small><br>
                 {% endif %}
             </div>
             <div class="form-control">
@@ -32,7 +31,6 @@
                     Mật khẩu
                 </label><br>
                 <input field="password" type="password" id="fpass" name="fpass" class="cpass" required><br>
-                <small class="request"></small><br>
             </div>
             <div class="form-control">
                 <label for="fRepass">
@@ -54,7 +52,6 @@
                     Số điện thoại
                 </label><br>
                 <input field="phone" type="number" id="fphone" name="fphone" class="cphone" value="{{phone}}" required><br>
-                <small class="request">Vui lòng nhập số</small><br>
                 {% if phoneRepeat %}
                 <small text="phoneError" class="request" style="color:red">Số điện thoại đã được đăng ký</small><br>
                 {% endif %}
@@ -67,7 +64,6 @@
                     Email
                 </label><br>
                 <input field="email" type="text" id="fEmail" name="fEmail" class="cEmail" value="{{email}}" required><br>
-                <small class="request">Vui lòng nhập địa chỉ Email của bạn</small><br>
                 {% if emailRepeat %}
                 <small text="emailError" class="request" style="color:red">Email đã được đăng ký</small><br>
                 {% endif %}
