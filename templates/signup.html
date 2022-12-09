@@ -1,84 +1,157 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng ký Tài khoản</title>
-    <link rel="stylesheet" href="../static/style/login.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link rel="shortcut icon"  href="/asset/real-icon-header.png">
-</head>
-<body>
-    
-    <div class="header">
-        <h1 class="name-web">FORUM</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng Ký Tài Khoản</title>
+    <link rel="stylesheet" href="../static/style/login.css" />
+    <link
+      rel="icon"
+      href="https://upload.wikimedia.org/wikipedia/commons/5/59/Forum_logo.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <link rel="shortcut icon" href="/asset/real-icon-header.png" />
+  </head>
+  <body>
+    <div class="header" style="display: flex">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/5/59/Forum_logo.png"
+        alt="img"
+        style="
+          width: 50px;
+          height: 50px;
+          margin-left: 42px;
+          margin-top: 5px;
+          border-radius: 5px;
+          margin-right: -81px;
+        "
+      />
+      <h1 class="name-web">Vietnamese Forum</h1>
     </div>
-    <div class="login signUp">
-        <h3 class="login__content">Đăng ký tài khoản</h3>
-        <form action="/signup" th:object="signupForm" method="post">
-            <div class="form-control">
-                <label for="fname">
-                    Tài khoản
-                </label><br>
-                <input field="username" type="text" id="fname" name="fname" class="cname" value = "{{username}}" required><br>
-                {% if usernameError %}
-                <small text="usernameError" class="request" style="color:red">Tên tài khoản đã tồn tại</small><br>
-                {% endif %}
-            </div>
-            <div class="form-control">
-                <label for="fpass">
-                    Mật khẩu
-                </label><br>
-                <input field="password" type="password" id="fpass" name="fpass" class="cpass" required><br>
-            </div>
-            <div class="form-control">
-                <label for="fRepass">
-                    Nhập lại mật khẩu
-                </label><br>
-                <input field="rePassword" type="password" id="fRepass" name="fRepass" class="cRepass" required><br>
-                {% if passwordError %}
-                <small text="passwordError" class="request" style="color:red">Mật khẩu không trùng khớp</small><br>
-                {% endif %}
-            </div>
-            <div class="form-control">
-                <label for="fFullname" class="lFullname">
-                    Họ và tên
-                </label><br>
-                <input field="fullName" type="text" id="fFullname" name="fFullname" class="cFullname" value="{{fullname}}" required><br>
-            </div>
-            <div class="form-control">
-                <label for="fphone" class="lphone">
-                    Số điện thoại
-                </label><br>
-                <input field="phone" type="number" id="fphone" name="fphone" class="cphone" value="{{phone}}" required><br>
-                {% if phoneRepeat %}
-                <small text="phoneError" class="request" style="color:red">Số điện thoại đã được đăng ký</small><br>
-                {% endif %}
-                {% if phoneError %}
-                <small text="phoneError" class="request" style="color:red">Số điện thoại phải có 10 chữ số</small><br>
-                {% endif %}
-            </div>
-            <div class="form-control">
-                <label for="fEmail" >
-                    Email
-                </label><br>
-                <input field="email" type="text" id="fEmail" name="fEmail" class="cEmail" value="{{email}}" required><br>
-                {% if emailRepeat %}
-                <small text="emailError" class="request" style="color:red">Email đã được đăng ký</small><br>
-                {% endif %}
-                {% if emailError %}
-                <small text="emailError" class="request" style="color:red">Email không hợp lệ</small><br>
-                {% endif %}
-            </div>
-            <button type="submit" class="login-btn">Đăng Ký</button>
-        </form>
-        
-        <p class="login__rule">
-            Bạn đã có tài khoản? <a href="/login">Đăng nhập ngay.</a><br><br>
-            <i class="fa-solid fa-lock"></i>
-            Qua việc đăng nhập hoặc tạo tài khoản, bạn đồng ý với các <a href="#">Điều khoản và Điều kiện</a> cũng như <a href="#">Chính sách An toàn và Bảo mật</a> của chúng tôi
-        </p>
+    <div
+      class="login signUp"
+      style="
+        margin: 50px auto;
+        max-width: 1100px;
+        padding: 50px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        border-radius: 10px;
+      "
+    >
+      <h3 class="login__content">Đăng ký tài khoản</h3>
+      <form action="/signup" th:object="signupForm" method="post">
+        <div class="form-control">
+          <label for="fname"> Tài khoản </label><br />
+          <input
+            field="username"
+            type="text"
+            id="fname"
+            name="fname"
+            class="cname"
+            value="{{username}}"
+            required
+          /><br />
+          {% if usernameError %}
+          <small text="usernameError" class="request" style="color: red"
+            >Tên tài khoản đã tồn tại</small
+          ><br />
+          {% endif %}
+        </div>
+        <div class="form-control">
+          <label for="fpass"> Mật khẩu </label><br />
+          <input
+            field="password"
+            type="password"
+            id="fpass"
+            name="fpass"
+            class="cpass"
+            required
+          /><br />
+        </div>
+        <div class="form-control">
+          <label for="fRepass"> Nhập lại mật khẩu </label><br />
+          <input
+            field="rePassword"
+            type="password"
+            id="fRepass"
+            name="fRepass"
+            class="cRepass"
+            required
+          /><br />
+          {% if passwordError %}
+          <small text="passwordError" class="request" style="color: red"
+            >Mật khẩu không trùng khớp</small
+          ><br />
+          {% endif %}
+        </div>
+        <div class="form-control">
+          <label for="fFullname" class="lFullname"> Họ và tên </label><br />
+          <input
+            field="fullName"
+            type="text"
+            id="fFullname"
+            name="fFullname"
+            class="cFullname"
+            value="{{fullname}}"
+            required
+          /><br />
+        </div>
+        <div class="form-control">
+          <label for="fphone" class="lphone"> Số điện thoại </label><br />
+          <input
+            field="phone"
+            type="number"
+            id="fphone"
+            name="fphone"
+            class="cphone"
+            value="{{phone}}"
+            required
+          /><br />
+          {% if phoneRepeat %}
+          <small text="phoneError" class="request" style="color: red"
+            >Số điện thoại đã được đăng ký</small
+          ><br />
+          {% endif %} {% if phoneError %}
+          <small text="phoneError" class="request" style="color: red"
+            >Số điện thoại phải có 10 chữ số</small
+          ><br />
+          {% endif %}
+        </div>
+        <div class="form-control">
+          <label for="fEmail"> Email </label><br />
+          <input
+            field="email"
+            type="text"
+            id="fEmail"
+            name="fEmail"
+            class="cEmail"
+            value="{{email}}"
+            required
+          /><br />
+          {% if emailRepeat %}
+          <small text="emailError" class="request" style="color: red"
+            >Email đã được đăng ký</small
+          ><br />
+          {% endif %} {% if emailError %}
+          <small text="emailError" class="request" style="color: red"
+            >Email không hợp lệ</small
+          ><br />
+          {% endif %}
+        </div>
+        <button type="submit" class="login-btn">Đăng Ký</button>
+      </form>
+
+      <p class="login__rule">
+        Bạn đã có tài khoản? <a href="/login">Đăng nhập ngay.</a><br /><br />
+        <i class="fa-solid fa-lock"></i>
+        Qua việc đăng nhập hoặc tạo tài khoản, bạn đồng ý với các
+        <a href="#">Điều khoản và Điều kiện</a> cũng như
+        <a href="#">Chính sách An toàn và Bảo mật</a> của chúng tôi
+      </p>
     </div>
-</body>
+  </body>
 </html>

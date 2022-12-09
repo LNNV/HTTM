@@ -37,13 +37,13 @@ textarea:focus {
 }
 
 .send-feedback {
-    margin-top: 10px;
-    width: 50px;
-    height: 40px;
-    border-radius: 10px;
-    border: 1px solid #3366ff;
-    background-color: #3366ff;
-    color: #fff;
+  margin-top: 10px;
+  width: 50px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid #3366ff;
+  background-color: #3366ff;
+  color: #fff;
 }
 
 .top-component {

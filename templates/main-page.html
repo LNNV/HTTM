@@ -2,6 +2,11 @@
 <html>
   <head>
     <link rel="stylesheet" href="../static/style/styles.css" />
+    <title>Trang Chủ</title>
+    <link
+      rel="icon"
+      href="https://upload.wikimedia.org/wikipedia/commons/5/59/Forum_logo.png"
+    />
   </head>
   <body>
     <div
@@ -80,7 +85,7 @@
           {% for key in label_dict1 %}
           <div class="dropdown">
             <a href="/details?label={{key}}" class="notification">
-              <span>{{key}}</span>
+              <span style="text-transform: capitalize">{{key}}</span>
               <span class="badge">{{label_dict1[key]}}</span>
             </a>
           </div>
@@ -90,7 +95,7 @@
           {% for key in label_dict2 %}
           <div class="dropdown">
             <a href="/details?label={{key}}" class="notification">
-              <span>{{key}}</span>
+              <span style="text-transform: capitalize">{{key}}</span>
               <span class="badge">{{label_dict2[key]}}</span>
             </a>
           </div>
@@ -100,7 +105,7 @@
           {% for key in label_dict3 %}
           <div class="dropdown">
             <a href="/details?label={{key}}" class="notification">
-              <span>{{key}}</span>
+              <span style="text-transform: capitalize">{{key}}</span>
               <span class="badge">{{label_dict3[key]}}</span>
             </a>
           </div>
@@ -171,7 +176,9 @@
           <div id="showMore{{p[0]}}" class="modal">
             <!-- Modal content -->
             <div class="modal-content">
-              <span id="{{p[0]}}" class="close" onclick="onClose(event)">&times;</span>
+              <span id="{{p[0]}}" class="close" onclick="onClose(event)"
+                >&times;</span
+              >
               <div
                 class="article-wrapper"
                 style="display: block; padding: 20px"
@@ -209,15 +216,13 @@
         </div>
         <div id="rateComponent">
           <div style="margin-top: 20px; display: flex">
-            <form action="/send-feedback" method="post" style="width: 100%;">
-                <textarea style="width: 80%; height: 50px" name="feedback" id="feedback"></textarea>
-                <button class="send-feedback" type="submit">Gửi</button>
-                <!-- <input
-                class="search-btn"
-                style="margin-top: 20px; cursor: pointer; margin-left: 10px"
-                type="submit"
-                value="Submit"
-                /> -->
+            <form action="/send-feedback" method="post" style="width: 100%">
+              <textarea
+                style="width: 80%; height: 50px"
+                name="feedback"
+                id="feedback"
+              ></textarea>
+              <button class="send-feedback" type="submit">Gửi</button>
             </form>
           </div>
           {% for f in feedback %}
